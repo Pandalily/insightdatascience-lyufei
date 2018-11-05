@@ -19,7 +19,6 @@ status_index=headerlist.index('CASE_STATUS')
 occupation_index=headerlist.index('SOC_NAME')
 occupationcode_index=headerlist.index('SOC_CODE')
 state_index=headerlist.index('WORKSITE_STATE')
-print(status_index,occupation_index,occupationcode_index,state_index)
 
 
 # In[4]:
@@ -41,7 +40,6 @@ occupationcode_dict = dict((x, occupationcode_list.count(x)) for x in All_occupa
 sum_occupationcode_dict = sum(occupationcode_dict.values())
 occupationcode_dict_sorted_keys = sorted(occupationcode_dict, key=occupationcode_dict.get, reverse=True)
 Top_10_occupationcode = {r: occupationcode_dict[r] for r in occupationcode_dict_sorted_keys[:10]}
-print (Top_10_occupationcode)
 
 
 # In[6]:
@@ -52,7 +50,6 @@ for i in range(10):
     a = list(Top_10_occupationcode_list[i])
     Final_Top_10_occupationcode_list.append(a)
     Final_Top_10_occupationcode_list[i].insert(3,"{:.1%}".format(Top_10_occupationcode_list[i][1]/sum_occupationcode_dict))
-Final_Top_10_occupationcode_list
 
 
 # In[7]:
@@ -65,20 +62,13 @@ Top_10_Occupations = {r: occupation_dict[r] for r in occupation_dict_sorted_keys
 Top_10_occupation_list = [x for x in Top_10_Occupations.items()]
 
 
+
 # In[8]:
 
 for i in range(10):
-    print(Top_10_occupationcode_list[i][0])
-
+    Final_Top_10_occupationcode_list[i][0]=Top_10_occupation_list[i][0]
 
 # In[9]:
-
-for i in range(10):
-    Final_Top_10_occupationcode_list[i][0]=Top_10_occupation_list[i][0]
-Final_Top_10_occupationcode_list
-
-
-# In[45]:
 
 Top_10_occupations_result = []
 for t in Final_Top_10_occupationcode_list:
@@ -87,27 +77,24 @@ for t in Final_Top_10_occupationcode_list:
 Top_10_occupations_result.insert(0,'TOP_OCCUPATIONS')
 Top_10_occupations_result.insert(1,'NUMBER_CERTIFIED_APPLICATIONS')
 Top_10_occupations_result.insert(2,'PERCENTAGE')
-Top_10_occupations_result
 
-
-# In[54]:
+# In[10]:
 
 with open('./output/top_10_occupations.txt','w') as out:
     for i in range(11):
             out.write("{};{};{};\n".format(Top_10_occupations_result[3*i],Top_10_occupations_result[3*i+1],Top_10_occupations_result[3*i+2]))
 
 
-# In[10]:
+# In[11]:
 
 All_state = set(state_list)
 state_dict = dict((x,state_list.count(x))for x in All_state)
 sum_state_dict = sum(state_dict.values())
 state_dict_sorted_keys = sorted(state_dict, key=state_dict.get, reverse=True)
 Top_10_states = {r: state_dict[r] for r in state_dict_sorted_keys[:10]}
-print(Top_10_states)
 
 
-# In[11]:
+# In[12]:
 
 Top_10_states_list = [x for x in Top_10_states.items()]
 Final_Top_10_states_list = []
@@ -115,10 +102,8 @@ for i in range(10):
     a = list(Top_10_states_list[i])
     Final_Top_10_states_list.append(a)
     Final_Top_10_states_list[i].insert(3,"{:.1%}".format(Top_10_states_list[i][1]/sum_state_dict))
-Final_Top_10_states_list
 
-
-# In[48]:
+# In[13]:
 
 Top_10_states_result = []
 for t in Final_Top_10_states_list:
@@ -127,10 +112,9 @@ for t in Final_Top_10_states_list:
 Top_10_states_result.insert(0,'TOP_STATES')
 Top_10_states_result.insert(1,'NUMBER_CERTIFIED_APPLICATIONS')
 Top_10_states_result.insert(2,'PERCENTAGE')
-Top_10_states_result
 
 
-# In[53]:
+# In[14]:
 
 with open('./output/top_10_states.txt','w') as out:
     for i in range(11):
