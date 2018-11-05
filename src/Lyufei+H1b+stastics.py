@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 import csv
 
@@ -13,7 +13,7 @@ with open(r"./input/h1b_input.csv") as f:
 headerlist = data[0]
 
 
-# In[3]:
+# In[2]:
 
 status_index=headerlist.index('CASE_STATUS')
 occupation_index=headerlist.index('SOC_NAME')
@@ -22,7 +22,7 @@ state_index=headerlist.index('WORKSITE_STATE')
 print(status_index,occupation_index,occupationcode_index,state_index)
 
 
-# In[4]:
+# In[3]:
 
 occupation_list = []
 occupationcode_list = []
@@ -34,7 +34,7 @@ for i,x in enumerate (data):
             state_list.append(data[i][state_index])
 
 
-# In[5]:
+# In[4]:
 
 All_occupationcode = set(occupationcode_list)
 occupationcode_dict = dict((x, occupationcode_list.count(x)) for x in All_occupationcode)
@@ -44,7 +44,7 @@ Top_10_occupationcode = {r: occupationcode_dict[r] for r in occupationcode_dict_
 print (Top_10_occupationcode)
 
 
-# In[6]:
+# In[5]:
 
 Top_10_occupationcode_list = [x for x in Top_10_occupationcode.items()]
 Final_Top_10_occupationcode_list = []
@@ -53,13 +53,10 @@ for i in range(len(Top_10_occupationcode_list)):
     Final_Top_10_occupationcode_list.append(a)
 for i in range(len(Top_10_occupationcode_list)):
     Final_Top_10_occupationcode_list[i].insert(2,"{:.1%}".format(Final_Top_10_occupationcode_list[i][1]/sum_occupationcode_dict))
-    print(Final_Top_10_occupationcode_list[i][1])
-    print(sum_occupationcode_dict)
-    print(int(Final_Top_10_occupationcode_list[i][1]) /int(sum_occupationcode_dict))
 print (Final_Top_10_occupationcode_list)
 
 
-# In[7]:
+# In[6]:
 
 All_occupation = set(occupation_list) 
 occupation_dict = dict((x,occupation_list.count(x)) for x in All_occupation)
@@ -71,14 +68,14 @@ Top_10_occupation_list = [x for x in Top_10_Occupations.items()]
 
 
 
-# In[9]:
+# In[7]:
 
 for i in range(len(Top_10_occupationcode_list)):
     Final_Top_10_occupationcode_list[i][0]=Top_10_occupation_list[i][0]
 Final_Top_10_occupationcode_list
 
 
-# In[10]:
+# In[8]:
 
 Top_10_occupations_result = []
 for t in Final_Top_10_occupationcode_list:
@@ -90,17 +87,14 @@ Top_10_occupations_result.insert(2,'PERCENTAGE')
 Top_10_occupations_result
 
 
-# In[11]:
+# In[9]:
 number_lines_occupation = len (Top_10_occupationcode_list) + 1
 with open('./output/top_10_occupations.txt','w') as out:
     for i in range(number_lines_occupation):
-        if i ==0:
-            out.write("{};{};{}\n".format(Top_10_occupations_result[0],Top_10_occupations_result[1],Top_10_occupations_result[2]))
-        else:
-            out.write("{};{};{};\n".format(Top_10_occupations_result[3*i],Top_10_occupations_result[3*i+1],Top_10_occupations_result[3*i+2]))
+        out.write("{};{};{}\n".format(Top_10_occupations_result[3*i],Top_10_occupations_result[3*i+1],Top_10_occupations_result[3*i+2]))
 
 
-# In[12]:
+# In[10]:
 
 All_state = set(state_list)
 state_dict = dict((x,state_list.count(x))for x in All_state)
@@ -110,7 +104,7 @@ Top_10_states = {r: state_dict[r] for r in state_dict_sorted_keys[:10]}
 print(Top_10_states)
 
 
-# In[13]:
+# In[11]:
 
 Top_10_states_list = [x for x in Top_10_states.items()]
 Final_Top_10_states_list = []
@@ -122,7 +116,7 @@ for i in range(len(Top_10_states_list)):
 print (Final_Top_10_states_list)
 
 
-# In[48]:
+# In[12]:
 
 Top_10_states_result = []
 for t in Final_Top_10_states_list:
@@ -134,7 +128,7 @@ Top_10_states_result.insert(2,'PERCENTAGE')
 Top_10_states_result
 
 
-# In[53]:
+# In[13]:
 number_lines_states = len (Top_10_states_list) + 1
 with open('./output/top_10_states.txt','w') as out:
     for i in range(number_lines_states):
