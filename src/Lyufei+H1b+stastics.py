@@ -19,7 +19,6 @@ status_index=headerlist.index('CASE_STATUS')
 occupation_index=headerlist.index('SOC_NAME')
 occupationcode_index=headerlist.index('SOC_CODE')
 state_index=headerlist.index('WORKSITE_STATE')
-print(status_index,occupation_index,occupationcode_index,state_index)
 
 
 # In[3]:
@@ -41,7 +40,6 @@ occupationcode_dict = dict((x, occupationcode_list.count(x)) for x in All_occupa
 sum_occupationcode_dict = sum(occupationcode_dict.values())
 occupationcode_dict_sorted_keys = sorted(occupationcode_dict, key=lambda k: (occupationcode_dict[k], k), reverse=True)
 Top_10_occupationcode = {r: occupationcode_dict[r] for r in occupationcode_dict_sorted_keys[:10]}
-print (Top_10_occupationcode)
 
 
 # In[5]:
@@ -53,7 +51,7 @@ for i in range(len(Top_10_occupationcode_list)):
     Final_Top_10_occupationcode_list.append(a)
 for i in range(len(Top_10_occupationcode_list)):
     Final_Top_10_occupationcode_list[i].insert(2,"{:.1%}".format(Final_Top_10_occupationcode_list[i][1]/sum_occupationcode_dict))
-print (Final_Top_10_occupationcode_list)
+
 
 
 # In[6]:
@@ -101,7 +99,6 @@ state_dict = dict((x,state_list.count(x))for x in All_state)
 sum_state_dict = sum(state_dict.values())
 state_dict_sorted_keys = sorted(state_dict, key=lambda k: (state_dict[k], k), reverse=True)
 Top_10_states = {r: state_dict[r] for r in state_dict_sorted_keys[:10]}
-print(Top_10_states)
 
 
 # In[11]:
@@ -113,7 +110,6 @@ for i in range(len(Top_10_states_list)):
     Final_Top_10_states_list.append(a)
 for i in range(len(Top_10_states_list)):
     Final_Top_10_states_list[i].insert(2,"{:.1%}".format(Top_10_states_list[i][1]/sum_state_dict))
-print (Final_Top_10_states_list)
 
 
 # In[12]:
@@ -135,7 +131,7 @@ with open('./output/top_10_states.txt','w') as out:
         out.write("{};{};{}\n".format(Top_10_states_result[3*i],Top_10_states_result[3*i+1],Top_10_states_result[3*i+2]))
 
 
-# In[ ]:
+
 
 
 
