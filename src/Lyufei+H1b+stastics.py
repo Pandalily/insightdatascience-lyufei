@@ -91,9 +91,9 @@ Top_10_occupations_result
 
 
 # In[11]:
-number_lines = len (Top_10_occupationcode_list) + 1
+number_lines_occupation = len (Top_10_occupationcode_list) + 1
 with open('./output/top_10_occupations.txt','w') as out:
-    for i in range(number_lines):
+    for i in range(number_lines_occupation):
             out.write("{};{};{};\n".format(Top_10_occupations_result[3*i],Top_10_occupations_result[3*i+1],Top_10_occupations_result[3*i+2]))
 
 
@@ -131,9 +131,9 @@ Top_10_states_result
 
 
 # In[53]:
-
+number_lines_states = len (Top_10_states_list) + 1
 with open('./output/top_10_states.txt','w') as out:
-    for i in range(number_lines):
+    for i in range(number_lines_states):
             out.write("{};{};{};\n".format(Top_10_states_result[3*i],Top_10_states_result[3*i+1],Top_10_states_result[3*i+2]))
 
 
