@@ -137,10 +137,7 @@ Top_10_states_result
 number_lines_states = len (Top_10_states_list) + 1
 with open('./output/top_10_states.txt','w') as out:
     for i in range(number_lines_states):
-        if i == 0:
-            out.write ("{};{};{}\n".format(Top_10_states_result[0],Top_10_states_result[1],Top_10_states_result[2]))
-        else:
-            out.write("{};{};{};\n".format(Top_10_states_result[3*i],Top_10_states_result[3*i+1],Top_10_states_result[3*i+2]))
+        out.write("{};{};{}\n".format(Top_10_states_result[3*i],Top_10_states_result[3*i+1],Top_10_states_result[3*i+2]))
 
 
 # In[ ]:
