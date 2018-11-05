@@ -42,6 +42,7 @@ sum_occupationcode_dict = sum(occupationcode_dict.values())
 occupationcode_dict_sorted_keys = sorted(occupationcode_dict, key=lambda k: (occupationcode_dict[k], k), reverse=True)
 Top_10_occupationcode = {r: occupationcode_dict[r] for r in occupationcode_dict_sorted_keys[:10]}
 print (Top_10_occupationcode)
+print (sum_occupationcode_dict)
 
 
 # In[6]:
