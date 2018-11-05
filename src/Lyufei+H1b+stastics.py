@@ -39,7 +39,7 @@ for i,x in enumerate (data):
 All_occupationcode = set(occupationcode_list)
 occupationcode_dict = dict((x, occupationcode_list.count(x)) for x in All_occupationcode)
 sum_occupationcode_dict = sum(occupationcode_dict.values())
-occupationcode_dict_sorted_keys = sorted(occupationcode_dict, key=occupationcode_dict.get, reverse=True)
+occupationcode_dict_sorted_keys = sorted(occupationcode_dict, key=lambda k: (occupationcode_dict[k], k), reverse=True)
 Top_10_occupationcode = {r: occupationcode_dict[r] for r in occupationcode_dict_sorted_keys[:10]}
 print (Top_10_occupationcode)
 
@@ -60,7 +60,7 @@ Final_Top_10_occupationcode_list
 All_occupation = set(occupation_list) 
 occupation_dict = dict((x,occupation_list.count(x)) for x in All_occupation)
 sum_occupation_dict = sum(occupation_dict.values())
-occupation_dict_sorted_keys = sorted(occupation_dict, key=occupation_dict.get, reverse=True)
+occupation_dict_sorted_keys = sorted(occupation_dict, key=lambda k: (occupation_dict[k], k), reverse=True)
 Top_10_Occupations = {r: occupation_dict[r] for r in occupation_dict_sorted_keys[:10]}
 Top_10_occupation_list = [x for x in Top_10_Occupations.items()]
 
@@ -78,7 +78,7 @@ for i in range(len(Top_10_occupationcode_list)):
 Final_Top_10_occupationcode_list
 
 
-# In[45]:
+# In[10]:
 
 Top_10_occupations_result = []
 for t in Final_Top_10_occupationcode_list:
@@ -90,24 +90,24 @@ Top_10_occupations_result.insert(2,'PERCENTAGE')
 Top_10_occupations_result
 
 
-# In[54]:
+# In[11]:
 number_lines = len (Top_10_occupationcode_list) + 1
 with open('./output/top_10_occupations.txt','w') as out:
     for i in range(number_lines):
             out.write("{};{};{};\n".format(Top_10_occupations_result[3*i],Top_10_occupations_result[3*i+1],Top_10_occupations_result[3*i+2]))
 
 
-# In[10]:
+# In[12]:
 
 All_state = set(state_list)
 state_dict = dict((x,state_list.count(x))for x in All_state)
 sum_state_dict = sum(state_dict.values())
-state_dict_sorted_keys = sorted(state_dict, key=state_dict.get, reverse=True)
+state_dict_sorted_keys = sorted(state_dict, key=lambda k: (state_dict[k], k), reverse=True)
 Top_10_states = {r: state_dict[r] for r in state_dict_sorted_keys[:10]}
 print(Top_10_states)
 
 
-# In[11]:
+# In[13]:
 
 Top_10_states_list = [x for x in Top_10_states.items()]
 Final_Top_10_states_list = []
