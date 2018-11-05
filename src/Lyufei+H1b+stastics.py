@@ -51,7 +51,8 @@ Final_Top_10_occupationcode_list = []
 for i in range(len(Top_10_occupationcode_list)):
     a = list(Top_10_occupationcode_list[i])
     Final_Top_10_occupationcode_list.append(a)
-    Final_Top_10_occupationcode_list[i].insert(2,Top_10_occupationcode_list[i][1]/sum_occupationcode_dict)
+for i in range(len(Top_10_occupationcode_list)):
+    Final_Top_10_occupationcode_list[i].insert(2,"{:.1%}".format(Top_10_occupationcode_list[i][1]/sum_occupationcode_dict))
 print (Final_Top_10_occupationcode_list)
 
 
@@ -113,7 +114,8 @@ Final_Top_10_states_list = []
 for i in range(len(Top_10_states_list)):
     a = list(Top_10_states_list[i])
     Final_Top_10_states_list.append(a)
-    Final_Top_10_states_list[i].insert(2,Top_10_states_list[i][1]/sum_state_dict)
+for i in range(len(Top_10_states_list)):
+    Final_Top_10_states_list[i].insert(2,"{:.1%}".format(Top_10_states_list[i][1]/sum_state_dict))
 print (Final_Top_10_states_list)
 
 
