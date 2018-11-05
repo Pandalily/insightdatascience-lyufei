@@ -91,7 +91,7 @@ Top_10_occupations_result
 
 
 # In[54]:
-number_lines = len (Top_10_occupationcode_list + 1)
+number_lines = len (Top_10_occupationcode_list) + 1
 with open('./output/top_10_occupations.txt','w') as out:
     for i in range(number_lines):
             out.write("{};{};{};\n".format(Top_10_occupations_result[3*i],Top_10_occupations_result[3*i+1],Top_10_occupations_result[3*i+2]))
