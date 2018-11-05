@@ -42,7 +42,6 @@ sum_occupationcode_dict = sum(occupationcode_dict.values())
 occupationcode_dict_sorted_keys = sorted(occupationcode_dict, key=lambda k: (occupationcode_dict[k], k), reverse=True)
 Top_10_occupationcode = {r: occupationcode_dict[r] for r in occupationcode_dict_sorted_keys[:10]}
 print (Top_10_occupationcode)
-print (sum_occupationcode_dict)
 
 
 # In[6]:
@@ -53,7 +52,6 @@ for i in range(len(Top_10_occupationcode_list)):
     a = list(Top_10_occupationcode_list[i])
     Final_Top_10_occupationcode_list.append(a)
     Final_Top_10_occupationcode_list[i].insert(2,"{:.1%}".format(Top_10_occupationcode_list[i][1]/sum_occupationcode_dict))
-    print(Top_10_occupationcode_list[i][1])
 print (Final_Top_10_occupationcode_list)
 
 
@@ -67,10 +65,6 @@ Top_10_Occupations = {r: occupation_dict[r] for r in occupation_dict_sorted_keys
 Top_10_occupation_list = [x for x in Top_10_Occupations.items()]
 
 
-# In[8]:
-
-for i in range(len(Top_10_occupation_list)):
-    print(Top_10_occupationcode_list[i][0])
 
 
 # In[9]:
@@ -120,7 +114,7 @@ for i in range(len(Top_10_states_list)):
     a = list(Top_10_states_list[i])
     Final_Top_10_states_list.append(a)
     Final_Top_10_states_list[i].insert(2,"{:.1%}".format(Top_10_states_list[i][1]/sum_state_dict))
-Final_Top_10_states_list
+print (Final_Top_10_states_list)
 
 
 # In[48]:
