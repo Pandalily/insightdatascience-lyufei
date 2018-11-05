@@ -55,7 +55,7 @@ for i in range(len(Top_10_occupationcode_list)):
     Final_Top_10_occupationcode_list[i].insert(2,"{:.1%}".format(Final_Top_10_occupationcode_list[i][1]/sum_occupationcode_dict))
     print(Final_Top_10_occupationcode_list[i][1])
     print(sum_occupationcode_dict)
-    print(Final_Top_10_occupationcode_list[i][1]/sum_occupationcode_dict)
+    print(int(Final_Top_10_occupationcode_list[i][1]) /int(sum_occupationcode_dict))
 print (Final_Top_10_occupationcode_list)
 
 
